@@ -17,8 +17,55 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {},
-    login: async (parent, { email, password }) => {},
-    saveBook: async (parent, { bookData }, context) => {},
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+
+      return { user, token };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email, password });
+
+      if (!user) {
+        throw new AuthenticationError('Email is incorrect!');
+      }
+
+      const correctPassword = await user.isCorrectPassword(password);
+
+      if (!correctPassword) {
+        throw new AuthenticationError('Password is incorrect!');
+      }
+
+      const token = signToken(user);
+      return { user, token };
+    },
+    saveBook: async (parent, { bookData }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findbyOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: bookData } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('Please log in to save a book.');
+    },
+    deleteBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: bookId } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('Please log in to delete a book.');
+    },
   },
 };
+
+module.exports = resolvers;
