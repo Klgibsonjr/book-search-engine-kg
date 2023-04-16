@@ -40,7 +40,6 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
 
-      console.log(data);
       Auth.login(data.addUsertoken);
     } catch (err) {
       console.error(err);
