@@ -24,7 +24,7 @@ const resolvers = {
       return { user, token };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email, password });
+      const user = await User.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError('Email is incorrect!');
