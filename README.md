@@ -70,7 +70,7 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 Below is a link to a walkthrough video showing the API functioning as intended.
 
-[Book Search Engine](https://drive.google.com/file/d/1yMDYy69MhgrAw106oxQnFU-n2Z5M-HJE/view)
+[Book Search Engine](https://drive.google.com/file/d/1zBFbhVHspcs4vUsX7kfguokLAYnUPAKl/view)
 
 ---
 
