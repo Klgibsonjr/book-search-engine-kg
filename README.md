@@ -8,7 +8,7 @@
 
 ## Desciption
 
-> This is an API designed for a social network that utilizes a NoSQL database, so the a website can handle a large amount of unstructured data.
+> Book Search Engine is an app where users can search for their favorites books and add a to saved list after signing up or logging into the app. The MERN development stack was used to create this application.
 
 ---
 
