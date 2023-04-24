@@ -1,7 +1,6 @@
 {
   "name": "googlebooks-app",
   "version": "1.0.0",
-  "homepage": "https://klgibsonjr.github.io/book-search-engine-kg",
   "description": "",
   "main": "server/server.js",
   "scripts": {

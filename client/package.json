@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://klgibsonjr.github.io/book-search-engine-kg",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
