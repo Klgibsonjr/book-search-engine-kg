@@ -33,7 +33,7 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route path='/book-search-engine-kg/' element={<SearchBooks />} />
+            <Route path='/book-search-engine-kg' element={<SearchBooks />} />
             <Route
               path='/book-search-engine-kg/saved'
               element={<SavedBooks />}
